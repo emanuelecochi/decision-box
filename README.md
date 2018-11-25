@@ -1,5 +1,4 @@
-# decision-box
-Decision Box - Arduino Pro Mini
+#Decision Box - Arduino Pro Mini
 
 <p align="center">
   <img src="http://www.esperienzahitech.it/wp-content/uploads/2018/11/Decision-Box-cover.jpg">
