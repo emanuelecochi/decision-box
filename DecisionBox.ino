@@ -13,10 +13,11 @@
 #define COLOR_YELLOW 3
 #define OFF 0
 
+int brightness = 30;            // brightness of the leds (min=0,max=255)
 int delayChangeColor = 250;      // delay between one color and another 
-int timeElaboration = 6000;      // time to process the answer
-int timeReadResponse = 4000;     // response display time
-int timeWaitingResponse = 4000;  // waiting time before the answer
+int timeElaboration = 3000;      // time to process the answer
+int timeReadResponse = 2000;     // response display time
+int timeWaitingResponse = 1500;  // waiting time before the answer
 long timerId;                    // variable to assign the timer id
 int buttonState = 0;             // variable for reading the pushbutton status
 int input = 0;                   // variable to store the value read
@@ -38,6 +39,7 @@ void setup() {
   randomSeed(analogRead(ANALOG_PIN));
   // Initialize all pixels to 'off
   strip.begin();
+  strip.setBrightness(brightness);
   strip.show();
 }
 
@@ -49,7 +51,7 @@ void loop() {
     if(!timer.isEnabled(timerId)){
       // start the repetition of colors (processing)
       timerId = timer.setInterval(delayChangeColor*3,elaboration);
-      // set the call to the 'stopElaboration' function after 'timeElaboration' (6 seconds) 
+      // set the call to the 'stopElaboration' function after 'timeElaboration' (3 seconds) 
       timer.setTimeout(timeElaboration,stopElaboration);
     }
   }
